@@ -1,36 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Page Title</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        .header {
-            background-color: #3498db; /* Change this to the color you want */
-            padding: 10px;
-            text-align: left;
-            color: #fff;
-        }
-
-        .pageTitle {
-            margin: 0;
-            display: inline;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="header">
-        <h1 class="pageTitle">Home</h1>
-    </div>
-
-    <!-- Your page content goes here -->
-
-</body>
-</html>
+{% extends "layout.html" %}
+{% block content %}
+    {% for post in posts%}
+        <h1>{{ post.title }}</h1>
+        <p>By {{ post.author }} on {{ post.date_posted }}</p>
+        <p> {{ post.content }}</p>
+    {% endfor %}
+{% endblock content %}
